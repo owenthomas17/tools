@@ -1,3 +1,5 @@
+#!/bin/sh
+
 checkConnection() {
     local WEBSITES_FILE="${1:-websites}"
     local FREQUENCY_SECONDS="${2:-5}"
