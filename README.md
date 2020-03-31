@@ -1,11 +1,8 @@
 # Intro
-
-By default the script reads a file called `websites`, it performs a curl against each website, records the time
-and formats/prints the results to stdout. 
-
-Overrides
-- You can override the file name by passing the name/path as `$1` the default is `websites`
-- You can override the check interval by passing an int as `$2` the default is 5 seconds
+This script doesn't aim to achieve much by itself. It stems from wanting to check my local internet connection
+against various places of the internet in order to determine if my ISP is having problems or not. It provides enough
+raw data to later perform some analysis against with the least dependencies possible. It produces output that is
+human readable and is easy to parse for further scripts
 
 ## Websites file Example
 ```bash
@@ -17,6 +14,13 @@ bbc.co.uk
 ```
 
 ## Example usage
+By default the script reads a file called `websites`, it performs a curl against each website, records the time
+and formats/prints the results to stdout. 
+
+Overrides
+- You can override the file name by passing the name/path as `$1` the default is `websites`
+- You can override the check interval by passing an int as `$2` the default is 5 seconds
+
 ```bash
 $ sh checkConnection.sh
 Timestamp            Site                           RTT
