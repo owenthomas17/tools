@@ -9,8 +9,9 @@ human readable and is easy to parse for further scripts
 $ ls -l  websites
 -rw-r--r-- 1 owen owen 71 Mar 31 12:29 websites
 $ cat websites
-google.com
-bbc.co.uk
+https://google.com
+https://bbc.co.uk
+http://192.168.0.1
 ```
 
 ## Example usage
@@ -23,9 +24,11 @@ Overrides
 
 ```bash
 $ sh checkConnection.sh
-Timestamp            Site                           RTT
-13:37:40-31-03-20  google.com                     0.020471
-13:37:40-31-03-20  bbc.co.uk                      0.021049
-13:37:45-31-03-20  google.com                     0.022137
-13:37:45-31-03-20  bbc.co.uk                      0.022437
+Timestamp            Site                           DNS_RTT         Request_RTT
+13:58:26-22-05-20    https://google.com             0.039036        0.072523
+13:58:26-22-05-20    https://bbc.co.uk              0.020391        0.059398
+13:58:26-22-05-20    http://192.168.0.1             0.000233        0.004511
+13:58:32-22-05-20    https://google.com             0.013081        0.075408
+13:58:33-22-05-20    https://bbc.co.uk              0.021771        0.056940
+13:58:33-22-05-20    http://192.168.0.1             0.000395        0.004084
 ```
