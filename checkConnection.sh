@@ -5,13 +5,15 @@ checkConnection() {
     local FREQUENCY_SECONDS="${2:-5}"
 
     # Outer control loop
-    printf "%-20s %-30s %-15s\n" Timestamp Site RTT
+    printf "%-20s %-30s %-15s %-5s\n" Timestamp Site DNS_RTT Request_RTT 
     while true; do
         #Inner control loop
         for SITE in $(cat $WEBSITES_FILE); do
             TIMESTAMP=$(date +%T-%d\-%m\-%y)
-            RESULT=$(curl --silent ${SITE} -w %{time_connect} 2>&1 | tail -n 1)
-            printf "%-18s %-30s %-15s\n" $TIMESTAMP $SITE $RESULT
+            RESULT=$(curl --silent ${SITE} -w "%{time_namelookup}\n%{time_connect}\n" -o /dev/null)
+            DNS_RTT=$(echo $RESULT | awk 'FNR==1')
+            REQUEST_RTT=$(echo $RESULT | awk 'FNR==2')
+            printf "%-20s %-30s %-15s %-5s\n" $TIMESTAMP $SITE $DNS_RTT $REQUEST_RTT
         done
        sleep $FREQUENCY_SECONDS
     done
