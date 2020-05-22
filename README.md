@@ -15,7 +15,7 @@ bbc.co.uk
 
 ## Example usage
 By default the script reads a file called `websites`, it performs a curl against each website, records the time
-and formats/prints the results to stdout. 
+it took to complete a TCP 3 way handshake and formats/prints the results to stdout. 
 
 Overrides
 - You can override the file name by passing the name/path as `$1` the default is `websites`
