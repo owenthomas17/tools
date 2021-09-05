@@ -1,10 +1,10 @@
 #!/bin/bash
 
+ROOT_CA_CERT_FILENAME="rootCA.crt"
 ROOT_CA_KEY_FILENAME="rootCA.key"
 ROOT_CA_KEY_LENGTH="4096"
 ROOT_CA_KEY_ENCRYPTION_CYPHER="-aes256"
-ROOT_CA_CERT_FILENAME="rootCA.crt"
-ROOT_CA_FILE_DIRECTORY="certs"
+ROOT_CA_FILE_DIRECTORY="certs/ca"
 
 function generateCAPrivateKey {
 	echo "Trying to generate CA private key"
