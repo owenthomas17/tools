@@ -1,0 +1,5 @@
+# Ignore certs
+*.crt
+*.key
+*.cnf
+*.csl
