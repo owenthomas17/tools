@@ -46,7 +46,7 @@ function signCert {
 	local COMMON_NAME=$1
 	openssl x509 -req -in public/"${COMMON_NAME}".csr -CA ca/rootCA.crt -CAkey ca/rootCA.key \
 	-CAcreateserial -out public/"${COMMON_NAME}".crt -days 10000 \
-	-extfile public/"${COMMON_NAME}".cnf
+	-extfile public/"${COMMON_NAME}".cnf -extensions req_ext
 }
 
 function main {
